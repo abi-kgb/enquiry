@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <img src="./images/logo33.gif" class="logo">
+        <h1>Admin Login</h1>
+    </header>
+
+    <section class="form-container">
+        <h2>Admin Access</h2>
+
+        <form onsubmit="return adminLogin()">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button type="submit">Login</button>
+        </form>
+
+        <p id="loginMsg"></p>
+    </section>
+
+    <script src="admin-login.js"></script>
+</body>
+
+</html>
