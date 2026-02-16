@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <td>${e.course}</td>
                     <td>${e.message}</td>
                     <td>
-                        <button class="delete-btn" onclick="deleteEnquiry('${e._id}')">
+                        <button class="delete-btn" onclick="deleteEnquiry('${e.id}')">
                             Delete
                         </button>
                     </td>
