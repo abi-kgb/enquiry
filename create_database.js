@@ -1,13 +1,14 @@
 // Simple Node.js script to create the MySQL database and table
+require("dotenv").config();
 const mysql = require("mysql2/promise");
 
 async function createDatabase() {
     try {
         // First connect without specifying database
         const connection = await mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: ""  // Add your MySQL password here if needed
+            host: process.env.DB_HOST || "localhost",
+            user: process.env.DB_USER || "root",
+            password: process.env.DB_PASSWORD || ""
         });
 
         console.log("✅ Connected to MySQL");

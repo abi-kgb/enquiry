@@ -1,15 +1,15 @@
+require("dotenv").config();
 const express = require("express");
-const path = require("path");
-const mysql = require("mysql2/promise");
-const bodyParser = require("body-parser");
 const cors = require("cors");
 const session = require("express-session");
-
+const path = require("path");
+const mysql = require("mysql2/promise");
 const app = express();
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 // This line is the key
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -76,8 +76,10 @@ app.post("/admin/login", (req, res) => {
 });
 
 // Server Start
-const PORT = 5015;
-app.listen(PORT, "0.0.0.0");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`🚀 Server running at http://localhost:${PORT}`);
+});
 
 function checkAdmin(req, res, next) {
     if (req.session.admin) next();

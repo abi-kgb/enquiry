@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const tbody = document.getElementById("enquiryData");
             tbody.innerHTML = "";
 
+            if (!Array.isArray(data)) {
+                console.error("Not an array:", data);
+                return;
+            }
             data.forEach(e => {
                 const row = document.createElement("tr");
 
