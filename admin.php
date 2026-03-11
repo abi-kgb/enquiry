@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header("Location: admin_login.html");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,8 +18,9 @@
 <body>
 
     <header class="header">
-        <img src="./images/logo33.gif" class="logo">
+        <img src="images/logo33.gif" class="logo">
         <h1>MCA Admin Dashboard</h1>
+        <a href="logout.php" style="margin-left: auto; color: white; text-decoration: none; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 5px;">Logout</a>
     </header>
 
     <section class="info-box">

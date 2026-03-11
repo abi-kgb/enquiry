@@ -9,20 +9,20 @@ function adminLogin() {
         return false;
     }
 
-    fetch("/admin/login", {
+    fetch("admin_login.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password })
     })
-    .then(res => res.json())
-    .then(data => {
-        if (data.success) {
-            window.location.href = "/admin.html";
-        } else {
-            msg.innerHTML = "Invalid login credentials";
-            msg.style.color = "red";
-        }
-    });
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                window.location.href = "admin.php";
+            } else {
+                msg.innerHTML = "Invalid login credentials";
+                msg.style.color = "red";
+            }
+        });
 
     return false;
 }

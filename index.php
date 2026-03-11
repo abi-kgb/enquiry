@@ -111,6 +111,7 @@
         &copy; <?php echo date("Y"); ?> Department of MCA. All Rights Reserved.
     </footer>
 
+    <script src="script.js"></script>
     <script>
         console.log("PHP-based script loaded");
         document.addEventListener("DOMContentLoaded", () => {

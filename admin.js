@@ -1,7 +1,7 @@
 console.log("admin.js loaded");
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetch("/admin/enquiries")
+    fetch("admin_api.php?action=list")
         .then(res => res.json())
         .then(data => {
             const tbody = document.getElementById("enquiryData");
@@ -35,8 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function deleteEnquiry(id) {
     if (!confirm("Delete this enquiry?")) return;
 
-    fetch(`/admin/enquiry/${id}`, {
-        method: "DELETE"
-    })
+    fetch(`admin_api.php?action=delete&id=${id}`)
         .then(() => location.reload());
 }
